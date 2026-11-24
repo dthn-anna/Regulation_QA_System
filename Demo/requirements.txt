@@ -1,0 +1,16 @@
+pyvi==0.1.1
+rank-bm25==0.2.2
+
+transformers==5.15.0
+sentence-transformers==5.7.0
+numpy==2.1.3
+pandas==2.2.3
+
+torch==2.11.0
+
+pyarrow
+accelerate
+
+streamlit==1.41.1
+
+# bert-score==0.3.13
