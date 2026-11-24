@@ -63,8 +63,7 @@ Regulations_QA_System/
 │   ├── 01_Processing/Preprocessing.ipynb        # normalization, stable IDs, deduplication
 │   ├── 02_Baseline/
 │   │   ├── Sparse_Retriever/BM25.ipynb          # BM25 + k1/b grid search
-│   │   └── Dense_Retriever/03a–03e_*.ipynb      # zero-shot baselines: bge-m3, m-E5-large,
-│   │                                            #   vietnamese-bi-encoder, Qwen3-Embedding-0.6B/4B
+│   │   └── Dense_Retriever/03a–03e_*.ipynb      # zero-shot baselines: bge-m3, m-E5-large, vietnamese-bi-encoder, Qwen3-Embedding-0.6B/4B
 │   ├── 03_Finetuning/
 │   │   ├── 4a_Evaluate_teacher_model.ipynb      # evaluate the cross-encoder teacher
 │   │   ├── 4b_Teacher_scoring.ipynb             # score (query, passage) pairs with the teacher
@@ -78,7 +77,7 @@ Regulations_QA_System/
 │   ├── 03_Generator_Qwen3-0.6B.ipynb            # fine-tuning + generation
 │   ├── 03_Generator_Qwen3-1.7B.ipynb
 │   ├── 03_Gemma3.ipynb
-│   ├── 03_Generator.ipynb                       # original / generic notebook
+│   ├── 03_Generator.ipynb                       # generic notebook
 │   ├── End-to-end Evaluation.ipynb              # full-pipeline evaluation and error analysis
 │   └── generator_common.py
 │
@@ -89,8 +88,7 @@ Regulations_QA_System/
     ├── settings.py                              # all paths and serving parameters
     ├── verify_local.py                          # checks that local results match the experiments
     ├── config.toml                              # Streamlit theme
-    ├── requirements.txt
-    └── README_LOCAL.md                          # detailed guide for moving the system from Drive to local (Vietnamese)
+    └── requirements.txt
 ```
 
 ## Data
@@ -130,7 +128,7 @@ pip install -r requirements.txt
 
 ### 2. Get the models and data
 
-Copy the following files from Drive. [`Demo/README_LOCAL.md`](Demo/README_LOCAL.md) lists them in detail and includes a command for packaging them.
+Copy the dataset and model checkpoint files from Drive. 
 
 ```
 Demo/
@@ -157,7 +155,7 @@ In `retriever_serving.json`, the `model_save_dir` key still points to Drive. At 
 ### 3. Verify and run
 
 ```bash
-python settings.py                   # lists missing files (OK / THIẾU = missing)
+python settings.py                   # lists missing files
 python verify_local.py --quick       # compare local retrieval with the experiment rankings
 python verify_local.py               # check both retriever and generator
 python verify_local.py --calibrate   # compute the out-of-scope abstention threshold
